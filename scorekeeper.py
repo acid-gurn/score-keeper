@@ -3,6 +3,10 @@
 from __future__ import print_function
 import random
 
+player1 = ""
+player2 = ""
+starting = ""
+
 
 def main_menu():
     choice = 0
@@ -28,10 +32,6 @@ def main_menu():
 
 def setup():
     # print("This is the game function.")
-    global player1, player2, starting_points
-    player1 = ""
-    player2 = ""
-    starting_points = ""
     player1 = raw_input("What is player 1's name? ")
     player2 = raw_input("What is player 2's name? ")
     starting_points = raw_input(
