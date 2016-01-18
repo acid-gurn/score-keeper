@@ -51,13 +51,13 @@ def begin(choice=""):
     if choice.lower() == "no":
         main_menu()
     elif choice.lower() == "yes":
-        game()
+        player_order()
     else:
         print("That is not a valid option, please try again.")
         begin()
 
 
-def game(going_first, flipped_coin, choice=0):
+def player_order(going_first, flipped_coin, choice=0):
     # print("This is the game function.")
     choice = raw_input(
         "Would you like to decide which player goes first or would you like" +
@@ -70,7 +70,8 @@ def game(going_first, flipped_coin, choice=0):
         going_first = flipping_for_first_player()
     else:
         print("That is not a valid option, please choose again.")
-        game()
+        player_order()
+    return going_first
 
 
 def coin_flip(coin, result):
