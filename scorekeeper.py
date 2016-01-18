@@ -57,7 +57,7 @@ def begin(choice=""):
         begin()
 
 
-def player_order(going_first, flipped_coin, choice=0):
+def player_order(going_first, choice=0):
     # print("This is the game function.")
     choice = raw_input(
         "Would you like to decide which player goes first or would you like" +
