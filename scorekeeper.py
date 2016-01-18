@@ -35,7 +35,7 @@ def setup():
     player1 = raw_input("What is player 1's name? ")
     player2 = raw_input("What is player 2's name? ")
     starting_points = raw_input(
-            "How many life points would you like to start with?"
+            "How many life points would you like to start with? "
             )
     print(
         "Player 1 is " + player1 + " and player 2 is " + player2 +
@@ -65,15 +65,9 @@ def game(going_first, flipped_coin, choice=0):
         "1: We will choose \n" +
         "2: Flip a coin for me \n")
     if choice == "1":
-        going_first = first_player()
+        going_first = choosing_first_player()
     elif choice == "2":
-        flipped_coin = coin_flip()
-        if flipped_coin == "heads":
-            going_first = player1
-        else:
-            going_first = player2
-        print("The result of the coin flip is: " + flipped_coin)
-        print(going_first + " is going first.")
+        going_first = flipping_for_first_player()
     else:
         print("That is not a valid option, please choose again.")
         game()
@@ -88,7 +82,7 @@ def coin_flip(coin, result):
     return result
 
 
-def first_player(choice):
+def choosing_first_player(choice):
     choice = raw_input(
         "Please choose which player will go first: \n" +
         "1: Player 1 \n" +
@@ -99,8 +93,19 @@ def first_player(choice):
         choice = player2
     else:
         print("That is not a valid option, please choose again.")
-        first_player
+        choosing_first_player()
     return choice
+
+
+def flipping_for_first_player(flipped_coin):
+    flipped_coin = coin_flip()
+    if flipped_coin == "heads":
+        going_first = player1
+    else:
+        going_first = player2
+    print("The result of the coin flip is: " + flipped_coin)
+    print(going_first + " is going first.")
+    return going_first
 
 
 def about():
