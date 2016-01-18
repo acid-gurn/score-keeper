@@ -5,7 +5,7 @@ import random
 
 player1 = ""
 player2 = ""
-starting_points = ""
+starting_points = 0
 
 
 def main_menu():
@@ -34,15 +34,26 @@ def setup():
     # print("This is the game function.")
     global player1, player2, starting_points
     player1 = raw_input("What is player 1's name? ")
-    player2 = raw_input("What is player 2's name? ")
-    starting_points = raw_input(
-            "How many life points would you like to start with? "
-            )
-    print(
-        "Player 1 is " + player1 + " and player 2 is " + player2 +
-        ". The starting number of life points is " + starting_points + ".")
-    return player1, player2, starting_points
-    begin()
+    if player1 == "":
+        print("You didn't enter a name for player 1! Please try again.")
+        setup()
+    else:
+        player2 = raw_input("What is player 2's name? ")
+        if player2 == "":
+            print("You didn't enter a name for player 2! Please try again.")
+            setup()
+        else:
+            starting_points = int(raw_input(
+                    "How many life points would you like to start with? "))
+            if type(starting_points) != int:
+                print("That is not a number! Please start again.")
+            else:
+                print(
+                    "Player 1 is " + player1 +
+                    " and player 2 is " + player2 +
+                    ". The starting number of life points is " +
+                    str(starting_points) + ".")
+                begin()
 
 
 def begin(choice=""):
@@ -58,7 +69,7 @@ def begin(choice=""):
         begin()
 
 
-def player_order(going_first, choice=0):
+def player_order(going_first="", choice=0):
     # print("This is the game function.")
     choice = raw_input(
         "Would you like to decide which player goes first or would you like" +
@@ -75,7 +86,7 @@ def player_order(going_first, choice=0):
     return going_first
 
 
-def coin_flip(coin, result):
+def coin_flip(coin=0, result=""):
     coin = random.random()
     if coin >= 5:
         result = "heads"
@@ -84,7 +95,7 @@ def coin_flip(coin, result):
     return result
 
 
-def choosing_first_player(choice):
+def choosing_first_player(choice=0):
     choice = raw_input(
         "Please choose which player will go first: \n" +
         "1: Player 1 \n" +
@@ -99,7 +110,7 @@ def choosing_first_player(choice):
     return choice
 
 
-def flipping_for_first_player(flipped_coin):
+def flipping_for_first_player(flipped_coin=""):
     flipped_coin = coin_flip()
     if flipped_coin == "heads":
         going_first = player1
