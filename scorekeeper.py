@@ -4,10 +4,10 @@ from __future__ import print_function
 import random
 
 
-def hello():
+def main_menu():
     choice = 0
     print(
-        "Welcome to the thing! Please select an option:"
+        "Welcome to Deven's Yu-Gi-Oh score keeper! Please select an option:"
          )
     print(
         "1: New game \n"
@@ -23,7 +23,7 @@ def hello():
         close()
     else:
         print("That is not a valid option, please choose again.")
-        hello()
+        main_menu()
 
 
 def setup(player1="", player2="", starting_points=0):
@@ -46,7 +46,7 @@ def begin(choice=""):
         "Would you like to begin? Type 'yes' to begin the game or" +
         " type 'no' to return to the main menu: ")
     if choice.lower() == "no":
-        hello()
+        main_menu()
     elif choice.lower() == "yes":
         game()
     else:
@@ -54,16 +54,26 @@ def begin(choice=""):
         begin()
 
 
-def game(choice=0):
-    print("This is the game function.")
+def game(going_first, flipped_coin, choice=0):
+    # print("This is the game function.")
     choice = raw_input(
         "Would you like to decide which player goes first or would you like" +
         " me to flip a coin? Please select an option: \n" +
         "1: We will choose \n" +
         "2: Flip a coin for me \n")
     if choice == "1":
-        
-
+        going_first = first_player()
+    elif choice == "2":
+        flipped_coin = coin_flip()
+        if flipped_coin == "heads":
+            going_first = player1
+        else:
+            going_first = player2
+        print("The result of the coin flip is: " + flipped_coin)
+        print(going_first + " is going first.")
+    else:
+        print("That is not a valid option, please choose again.")
+        game()
 
 
 def coin_flip(coin, result):
@@ -97,4 +107,4 @@ def about():
 def close():
     print("This is the close function.")
 
-hello()
+main_menu()
