@@ -1,6 +1,7 @@
 # yu-gi-oh scorekeeper // scorekeeper.py
 
 from __future__ import print_function
+import random
 
 
 def hello():
@@ -27,6 +28,7 @@ def hello():
 
 def setup(player1="", player2="", starting_points=0):
     # print("This is the game function.")
+    global player1, player2, starting_points
     player1 = raw_input("What is player 1's name? ")
     player2 = raw_input("What is player 2's name? ")
     starting_points = raw_input(
@@ -35,6 +37,7 @@ def setup(player1="", player2="", starting_points=0):
     print(
         "Player 1 is " + player1 + " and player 2 is " + player2 +
         ". The starting number of life points is " + starting_points + ".")
+    return player1, player2, starting_points
     begin()
 
 
@@ -51,9 +54,40 @@ def begin(choice=""):
         begin()
 
 
-def game():
+def game(choice=0):
     print("This is the game function.")
-    pass
+    choice = raw_input(
+        "Would you like to decide which player goes first or would you like" +
+        " me to flip a coin? Please select an option: \n" +
+        "1: We will choose \n" +
+        "2: Flip a coin for me \n")
+    if choice == "1":
+        
+
+
+
+def coin_flip(coin, result):
+    coin = random.random()
+    if coin >= 5:
+        result = "heads"
+    else:
+        result = "tails"
+    return result
+
+
+def first_player(choice):
+    choice = raw_input(
+        "Please choose which player will go first: \n" +
+        "1: Player 1 \n" +
+        "2: Player 2 \n")
+    if choice == "1":
+        choice = player1
+    elif choice == "2":
+        choice = player2
+    else:
+        print("That is not a valid option, please choose again.")
+        first_player
+    return choice
 
 
 def about():
