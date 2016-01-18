@@ -5,7 +5,7 @@ import random
 
 player1 = ""
 player2 = ""
-starting = ""
+starting_points = ""
 
 
 def main_menu():
@@ -32,6 +32,7 @@ def main_menu():
 
 def setup():
     # print("This is the game function.")
+    global player1, player2, starting_points
     player1 = raw_input("What is player 1's name? ")
     player2 = raw_input("What is player 2's name? ")
     starting_points = raw_input(
