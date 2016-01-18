@@ -5,6 +5,8 @@ import random
 
 player1 = ""
 player2 = ""
+player1_points = 0
+player2_points = 0
 starting_points = 0
 
 
@@ -32,7 +34,7 @@ def main_menu():
 
 def setup():
     # print("This is the game function.")
-    global player1, player2, starting_points
+    global player1, player2, starting_points, player1_points, player2_points
     player1 = raw_input("What is player 1's name? ")
     if player1 == "":
         print("You didn't enter a name for player 1! Please try again.")
@@ -53,6 +55,8 @@ def setup():
                     " and player 2 is " + player2 +
                     ". The starting number of life points is " +
                     str(starting_points) + ".")
+                player1_points = starting_points
+                player2_points = starting_points
                 begin()
 
 
@@ -119,6 +123,26 @@ def flipping_for_first_player(flipped_coin=""):
     print("The result of the coin flip is: " + flipped_coin)
     print(going_first + " is going first.")
     return going_first
+
+
+def game(choice=0):
+    choice = raw_input(
+        "What would you like to do? Please select an option: " +
+        "\n1: Add/remove life points from " + player1 +
+        "\n2: Add/remove life points from " + player2 +
+        "\n3: View current life points" +
+        "\n4: Go back to the main menu (end game)")
+    if choice == 1:
+        pass
+    elif choice == 2:
+        pass
+    elif choice == 3:
+        pass
+    elif choice == 4:
+        pass
+    else:
+        print("That is not a valid choice, please choose again.")
+        game()
 
 
 def about():
