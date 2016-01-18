@@ -26,9 +26,12 @@ def main_menu():
         main_menu()
 
 
-def setup(player1="", player2="", starting_points=0):
+def setup():
     # print("This is the game function.")
     global player1, player2, starting_points
+    player1 = ""
+    player2 = ""
+    starting_points = ""
     player1 = raw_input("What is player 1's name? ")
     player2 = raw_input("What is player 2's name? ")
     starting_points = raw_input(
