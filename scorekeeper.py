@@ -132,17 +132,34 @@ def game(choice=0):
         "\n2: Add/remove life points from " + player2 +
         "\n3: View current life points" +
         "\n4: Go back to the main menu (end game)")
-    if choice == 1:
+    if choice == "1":
         pass
-    elif choice == 2:
+    elif choice == "2":
         pass
-    elif choice == 3:
+    elif choice == "3":
         pass
-    elif choice == 4:
+    elif choice == "4":
         pass
     else:
         print("That is not a valid choice, please choose again.")
         game()
+
+
+def player1_points(choice=0):
+    print(
+        "Would you like to add or remove points from " + player1 + "?\n" +
+        "Please select an option: \n" +
+        "1: Add points\n" +
+        "2: Remove points\n" +
+        "3: Neither, take me back to the previous menu.")
+    if choice == "1":
+        pass
+    elif choice == "2":
+        pass
+    elif choice == "3":
+        pass
+    else:
+        print("That is not a valid choice, please choose again.")
 
 
 def about():
