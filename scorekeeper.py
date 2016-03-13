@@ -174,6 +174,26 @@ def player1_points(choice=0):
         print("That is not a valid choice, please choose again.")
 
 
+def add_points(player_points, player, choice=0):
+    print("How many points would you like to add?")
+    points = raw_input()
+    player_points += points
+    print(
+        player1 + " now has " + player_points + " points.\n"
+        "Please select an option: \n" +
+        "1: Add more points to this player \n" +
+        "2: Go back to the main menu \n")
+    if choice == "1":
+        add_points(player_points, player)
+    elif choice == "2":
+        game()
+    else:
+        print("That is not a valid choice, please choose again.")
+        # this needs to call the function again/allow the user to make another
+        # choice
+    pass
+
+
 def about():
     """Displays information about??? How to use the thing???"""
     print("This is the about function.")
