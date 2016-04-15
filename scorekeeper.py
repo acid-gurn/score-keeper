@@ -12,7 +12,7 @@ starting_points = 0
 
 def main_menu():
     """Displays the menu on start."""
-    choice = 0
+    choice = ""
     print(
         "Welcome to Deven's Yu-Gi-Oh score keeper! Please select an option:"
          )
